@@ -1,4 +1,5 @@
 FROM ubuntu:18.04
+
 MAINTAINER Bamboo/Atlassian
 
 ENV BAMBOO_VERSION=6.10.4
@@ -17,8 +18,17 @@ RUN apt-get update -y && \
     apt-get upgrade -y && \
     # please keep Java version in sync with JDK capabilities below
     apt-get install -y openjdk-8-jdk && \
-    apt-get install -y curl
+    apt-get install -y curl && \
+    apt-get install -y sudo && \
+    apt-get install -y vim && \
+    apt-get install maven -y && \
+    apt-get install git -y
 
+RUN apt-get install apt-transport-https ca-certificates gnupg-agent software-properties-common -y
+
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+RUN add-apt-repository "deb [arch=armhf] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+RUN apt-get install docker-ce -y
 
 RUN addgroup ${BAMBOO_GROUP} && \
      adduser --home ${BAMBOO_USER_HOME} --ingroup ${BAMBOO_GROUP} --disabled-password ${BAMBOO_USER}

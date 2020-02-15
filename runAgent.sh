@@ -17,3 +17,4 @@ export LANG=C.UTF-8
 export LANGUAGE=C.UTF-8
 
 java ${VM_OPTS} -jar ${AGENT_JAR} ${1}/agentServer/ ${BAMBOO_SECURITY_TOKEN_PARAM}
+
