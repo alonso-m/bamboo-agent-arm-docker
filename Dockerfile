@@ -22,7 +22,8 @@ RUN apt-get update -y && \
     apt-get install -y sudo && \
     apt-get install -y vim && \
     apt-get install maven -y && \
-    apt-get install git -y
+    apt-get install git -y && \
+    apt-get install jq
 
 RUN apt-get install apt-transport-https ca-certificates gnupg-agent software-properties-common -y
 
