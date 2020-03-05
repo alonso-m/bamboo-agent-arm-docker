@@ -19,11 +19,10 @@ RUN apt-get update -y && \
     # please keep Java version in sync with JDK capabilities below
     apt-get install -y openjdk-8-jdk && \
     apt-get install -y curl && \
-    apt-get install -y sudo && \
-    apt-get install -y vim && \
     apt-get install maven -y && \
     apt-get install git -y && \
-    apt-get install jq -y
+    apt-get install jq -y && \
+    apt-get install postgresql-10 postgresql-contrib-10 -y
 
 RUN apt-get install apt-transport-https ca-certificates gnupg-agent software-properties-common -y
 
