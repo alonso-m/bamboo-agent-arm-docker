@@ -13,6 +13,7 @@ ENV AGENT_JAR=${BAMBOO_USER_HOME}/atlassian-bamboo-agent-installer.jar
 ENV SCRIPT_WRAPPER=${BAMBOO_USER_HOME}/runAgent.sh
 ENV INIT_BAMBOO_CAPABILITIES=${BAMBOO_USER_HOME}/init-bamboo-capabilities.properties
 ENV BAMBOO_CAPABILITIES=${BAMBOO_AGENT_HOME}/bin/bamboo-capabilities.properties
+ENV DEBIAN_FRONTEND=noninteractive 
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \
