@@ -15,7 +15,7 @@ RUN set -x && \
 
 RUN set -x && \
      apt-get update && \
-     apt-get install -y --no-install-recommends curl git maven jq && \
+     apt-get install -y --no-install-recommends curl git maven jq gnupg && \
 # create symlink for java home backward compatibility
      mkdir -m 755 -p /usr/lib/jvm && \
      ln -s "${JAVA_HOME}" /usr/lib/jvm/java-8-openjdk-armhf && \
