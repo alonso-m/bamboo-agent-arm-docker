@@ -27,7 +27,7 @@ RUN apt-get update -y && \
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 RUN add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-RUN apt-get install docker-ce -y
+RUN apt-get install docker-ce-cli:arm64 -y
 
 WORKDIR ${BAMBOO_USER_HOME}
 USER ${BAMBOO_USER}
