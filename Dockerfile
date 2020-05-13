@@ -18,7 +18,7 @@ RUN set -x && \
      apt-get install -y --no-install-recommends curl git maven jq && \
 # create symlink for java home backward compatibility
      mkdir -m 755 -p /usr/lib/jvm && \
-     ln -s "${JAVA_HOME}" /usr/lib/jvm/java-8-openjdk-armhf && \
+     ln -s "${JAVA_HOME}" /usr/lib/jvm/java-8-openjdk-aarch64 && \
      rm -rf /var/lib/apt/lists/*
      
 RUN apt-get update -y && \
@@ -26,7 +26,7 @@ RUN apt-get update -y && \
 	apt-get install apt-transport-https ca-certificates gnupg-agent software-properties-common lsb-release -y
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-RUN add-apt-repository "deb [arch=armhf] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+RUN add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 RUN apt-get install docker-ce -y
 
 WORKDIR ${BAMBOO_USER_HOME}
