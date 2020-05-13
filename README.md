@@ -1,4 +1,4 @@
-# bamboo-server-arm-docker
+# bamboo-agent-arm-docker
 
 This is a fork of the original Atlassian Bamboo agent server docker image modified to work on ARM architecture. The original repository can be found here: https://bitbucket.org/atlassian-docker/docker-bamboo-agent-base/src/master/
 
