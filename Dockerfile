@@ -23,7 +23,7 @@ RUN set -x && \
      
 RUN apt-get update -y && \
     apt-get upgrade -y && \     
-	apt-get install apt-transport-https ca-certificates gnupg-agent software-properties-common lsb-release -y
+  	apt-get install apt-transport-https ca-certificates gnupg-agent software-properties-common lsb-release -y
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 RUN add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -41,7 +41,12 @@ RUN set -x && \
      mkdir -p ${BAMBOO_USER_HOME}/bamboo-agent-home/bin
 
 COPY --chown=bamboo:bamboo bamboo-update-capability.sh bamboo-update-capability.sh
-RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.jdk.JDK 1.8" ${JAVA_HOME}/bin/java
 
 COPY --chown=bamboo:bamboo runAgent.sh runAgent.sh
+
+RUN chmod +x ${BAMBOO_USER_HOME}/bamboo-update-capability.sh && \
+    chmod +x ${BAMBOO_USER_HOME}/runAgent.sh 
+
+RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.jdk.JDK 1.8" ${JAVA_HOME}/bin/java
+
 ENTRYPOINT ["./runAgent.sh"]
