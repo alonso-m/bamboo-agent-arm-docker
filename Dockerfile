@@ -1,4 +1,4 @@
-FROM arm32v7/adoptopenjdk:8-jdk-hotspot-bionic
+FROM arm32v7/adoptopenjdk:15-jdk-hotspot-bionic
 
 ENV BAMBOO_USER=bamboo
 ENV BAMBOO_GROUP=bamboo
